@@ -3,7 +3,7 @@ When(/^I visit the home page$/) do
 end
 
 Then(/^I should see a welcome message$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_selector('main article.welcome')
 end
 
 Then(/^I should see a description of the system's main purposes$/) do
