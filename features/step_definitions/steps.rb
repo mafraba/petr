@@ -3,7 +3,7 @@ When(/^I visit the home page$/) do
 end
 
 Then(/^I should see a welcome message$/) do
-  expect(page).to have_selector('main article.welcome')
+  expect(page).to have_selector('main article#welcome')
 end
 
 Then(/^I should see a description of the system's main purposes$/) do
