@@ -5,7 +5,10 @@ end
 Given(/^I am logged in$/) do
   email = 'testing@man.net'
   password = 'secretpass'
-  Organisation.new(:email => email, :password => password, :password_confirmation => password).save!
+  Organisation.new(:email => email, 
+  	:password => password, 
+  	:password_confirmation => password,
+  	:confirmed_at => Time.now).save!
 
   visit '/organisations/sign_in'
   fill_in "organisation_email", :with => email
