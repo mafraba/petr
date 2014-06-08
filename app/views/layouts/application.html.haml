@@ -7,17 +7,18 @@
     = csrf_meta_tags
   %body
     %nav
-      - if user_signed_in?
+      - if organisation_signed_in?
         Logged in as
-        %em= current_user.email
+        %em= current_organisation.email
         \.
-        = link_to 'Edit profile', edit_user_registration_path, :id => 'edit-profile-link'
+        = link_to 'Edit profile', edit_organisation_registration_path, :id => 'edit-profile-link'
         |
-        = link_to "Logout", destroy_user_session_path, method: :delete, :id => 'logout-link'
+        = link_to "Logout", destroy_organisation_session_path, method: :delete, :id => 'logout-link'
       - else
-        = link_to "Sign up", new_user_registration_path, :id => 'signup-link'
+        Are you an Organisation? 
+        = link_to "Sign up", new_organisation_registration_path, :id => 'signup-link'
         |
-        = link_to "Login", new_user_session_path, :id => 'login-link'
+        = link_to "Login", new_organisation_session_path, :id => 'login-link'
 
     %p.notice= notice
     %p.alert= alert

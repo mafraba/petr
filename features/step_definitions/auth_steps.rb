@@ -1,15 +1,15 @@
 Given(/^I am not logged in$/) do
-  page.driver.submit :delete, "/users/sign_out", {}
+  page.driver.submit :delete, "/organisations/sign_out", {}
 end
 
 Given(/^I am logged in$/) do
   email = 'testing@man.net'
   password = 'secretpass'
-  User.new(:email => email, :password => password, :password_confirmation => password).save!
+  Organisation.new(:email => email, :password => password, :password_confirmation => password).save!
 
-  visit '/users/sign_in'
-  fill_in "user_email", :with => email
-  fill_in "user_password", :with => password
+  visit '/organisations/sign_in'
+  fill_in "organisation_email", :with => email
+  fill_in "organisation_password", :with => password
   click_button "Sign in"
 end
 
@@ -23,9 +23,9 @@ When(/^I fill my data$/) do
   email = 'testing@man.net'
   password = 'secretpass'
 
-  fill_in "user_email", :with => email
-  fill_in "user_password", :with => password
-  fill_in "user_password_confirmation", :with => password
+  fill_in "organisation_email", :with => email
+  fill_in "organisation_password", :with => password
+  fill_in "organisation_password_confirmation", :with => password
 end
 
 When(/^I submit the signup form$/) do
@@ -33,7 +33,7 @@ When(/^I submit the signup form$/) do
 end
 
 Then(/^I should have registered myself as an organisation$/) do
-  expect(User).to exist(email: 'testing@man.net')
+  expect(Organisation).to exist(email: 'testing@man.net')
 end
 
 
