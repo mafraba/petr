@@ -11,9 +11,9 @@
         Logged in as
         %em= current_user.email
         \.
-        = link_to 'Edit profile', edit_user_registration_path, :class => 'edit-profile-link'
+        = link_to 'Edit profile', edit_user_registration_path, :id => 'edit-profile-link'
         |
-        = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'logout-link'
+        = link_to "Logout", destroy_user_session_path, method: :delete, :id => 'logout-link'
       - else
         = link_to "Sign up", new_user_registration_path, :id => 'signup-link'
         |
