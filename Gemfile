@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 # For authentication
 gem 'devise'
 
+# HAML templating
+gem 'haml'
+
 # In dev/test
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
