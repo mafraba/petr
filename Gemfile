@@ -38,6 +38,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# For authentication
+gem 'devise'
+
 # In dev/test
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
