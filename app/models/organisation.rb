@@ -4,4 +4,7 @@ class Organisation < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
+  
+  # Organisations can register animals         
+  has_many :animals, dependent: :destroy
 end
