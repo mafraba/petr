@@ -1,8 +1,8 @@
-Given(/^I am not logged in$/) do
+Given(/^I am not logged in/) do
   page.driver.submit :delete, "/organisations/sign_out", {}
 end
 
-Given(/^I am logged in$/) do
+Given(/^I am logged in/) do
   email = 'testing@man.net'
   password = 'secretpass'
   Organisation.new(:email => email, 
