@@ -1,6 +1,8 @@
 class Animal < ActiveRecord::Base
-  belongs_to :organisation
 
+  # Should always belong to an organisation
+  validates_presence_of :organisation
+  belongs_to :organisation
   # Should always have a name
   validates_presence_of :name
   # Should always have a sex

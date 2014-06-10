@@ -4,6 +4,7 @@ describe Animal do
 
   # It should always belong to an organisation
   it { should belong_to(:organisation) }
+  it { should validate_presence_of(:organisation) }
   
   it "should always have a name" do
   	should validate_presence_of(:name)

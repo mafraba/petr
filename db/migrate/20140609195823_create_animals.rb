@@ -4,7 +4,7 @@ class CreateAnimals < ActiveRecord::Migration
       t.string :name
       t.string :sex
       t.date :birthdate
-      t.references :organisation, index: true
+      t.references :organisation, index: true, null: false
       t.text :description
 
       t.timestamps
