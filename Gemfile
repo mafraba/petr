@@ -43,6 +43,7 @@ gem 'devise'
 
 # HAML templating
 gem 'haml'
+gem 'haml-rails'
 
 # In dev/test
 group :development, :test do
