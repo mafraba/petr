@@ -8,7 +8,7 @@
   %body
     %nav
       - if organisation_signed_in?
-        = link_to 'Register Animal', register_animal_path, :id => 'animal-registration-link'
+        = link_to 'Register Animal', new_animal_path, :id => 'animal-registration-link'
         Logged in as
         %em= current_organisation.email
         \.
