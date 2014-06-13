@@ -23,32 +23,24 @@ class AnimalsController < ApplicationController
 
   # POST /animals
   # POST /animals.json
-  def create    
+  def create        
     @animal = Animal.new(animal_params)
     @animal.organisation = current_organisation
 
-    respond_to do |format|
-      if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
-        format.json { render :show, status: :created, location: @animal }
-      else
-        format.html { render :new }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
-      end
+    if @animal.save
+      redirect_to @animal, notice: 'Animal was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /animals/1
   # PATCH/PUT /animals/1.json
   def update
-    respond_to do |format|
-      if @animal.update(animal_params)
-        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @animal }
-      else
-        format.html { render :edit }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
-      end
+    if @animal.update(animal_params)
+      redirect_to @animal, notice: 'Animal was successfully updated.' 
+    else
+      render :edit 
     end
   end
 
@@ -56,10 +48,7 @@ class AnimalsController < ApplicationController
   # DELETE /animals/1.json
   def destroy
     @animal.destroy
-    respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to animals_url, notice: 'Animal was successfully destroyed.'
   end
 
   private

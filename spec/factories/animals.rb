@@ -3,9 +3,9 @@
 FactoryGirl.define do
   factory :animal do
     name "MyString"
-    sex "MyString"
+    sex "male"
     birthdate "2014-06-09"
-    organisation nil
     description "MyText"
+    organisation
   end
 end
