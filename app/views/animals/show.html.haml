@@ -16,6 +16,7 @@
   %b Description:
   = @animal.description
 
-= link_to 'Edit', edit_animal_path(@animal)
-\|
+- if organisation_signed_in?
+  = link_to 'Edit', edit_animal_path(@animal)
+  \|
 = link_to 'Back', animals_path
