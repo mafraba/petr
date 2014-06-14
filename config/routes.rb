@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'organisations/index'
+
   resources :animals
 
   devise_for :organisations

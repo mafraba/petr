@@ -1,0 +1,7 @@
+%h1 List of organisations
+
+%ul#organisations-list
+  - @organisations.each do |organisation|
+    %li= organisation.email
+
+%br

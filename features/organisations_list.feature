@@ -9,4 +9,3 @@ Scenario: The user wants to see a list of organisations
   Then I should see a link to a 'List of Organisations'
   And I if I clink on that 'List of Organisations' link
   And I should see a list of every registered organisation
-  And I should see a link to the profile of each one
