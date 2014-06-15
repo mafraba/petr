@@ -7,4 +7,18 @@ class Organisation < ActiveRecord::Base
   
   # Organisations can register animals         
   has_many :animals, dependent: :destroy
+
+  # Organisations have a profile
+  has_one :profile, dependent: :destroy
+
+  # Auto generate profile on creation
+  after_create :build_profile
+
+  private ###################################################################
+
+  def build_profile
+  	profile = Profile.new 
+  	profile.organisation = self
+  	profile.save
+  end
 end

@@ -3,9 +3,10 @@ require 'spec_helper'
 describe ProfilesController do
 
   describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
+    it "assigns the requested profile as @profile" do
+      profile = FactoryGirl.create(:profile)
+      get :edit, {:id => profile.to_param}
+      assigns(:profile).should eq(profile)
     end
   end
 
