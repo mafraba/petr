@@ -7,8 +7,8 @@ Then(/^if I click on the 'Edit profile' link$/) do
 end
 
 Then(/^I update my name to '(.+)'$/) do |name|
-  fill_in "name", :with => name
-  click_button 'Update'
+  fill_in "profile_name", :with => name
+  click_button 'Save'
 end
 
 Then(/^I should see my profile updated with my new name '(.+)'$/) do |name|

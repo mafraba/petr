@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'profiles/edit'
 
   get 'organisations/index'
+
+  get 'profile/edit' => 'profiles#edit', as: 'profile_edit'
+  match 'profile' => 'profiles#update', as: 'profile', via: [:put, :patch]
 
   resources :animals
 

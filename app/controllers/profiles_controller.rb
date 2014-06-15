@@ -1,18 +1,22 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:edit]
 
   def edit
+    @profile = Profile.where(organisation: current_organisation).first
+  end
+
+  def update
+  	@profile = Profile.where(organisation: current_organisation).first
+    if @profile.update(profile_params)
+      redirect_to root_path, notice: 'Profile was successfully updated.' 
+    else
+      render :edit 
+    end
   end
 
   private ############################################################################
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_profile
-    @profile = Profile.find(params[:id])
-  end
-
   # Never trust parameters from the scary internet, only allow the white list through.
-  def animal_params
+  def profile_params
     params.require(:profile).permit(:name, :organisation_id, :description)
   end
 end
