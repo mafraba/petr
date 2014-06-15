@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/edit'
+
   get 'organisations/index'
 
   resources :animals
