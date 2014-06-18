@@ -11,9 +11,9 @@
         Logged in as
         %em= current_organisation.email
         \.
-        = link_to 'Edit profile', profile_edit_path, :id => 'edit-profile-link'
+        = link_to 'Edit profile', edit_profile_path(current_organisation.profile), id: 'edit-profile-link'
         |
-        = link_to "Logout", destroy_organisation_session_path, method: :delete, :id => 'logout-link'
+        = link_to "Logout", destroy_organisation_session_path, method: :delete, id: 'logout-link'
       - else
         Are you an Organisation? 
         = link_to "Sign up", new_organisation_registration_path, :id => 'signup-link'

@@ -45,6 +45,9 @@ gem 'devise'
 gem 'haml'
 gem 'haml-rails'
 
+# CanCan authorisation
+gem 'cancan'
+
 # In dev/test
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

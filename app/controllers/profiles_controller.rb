@@ -1,15 +1,15 @@
 class ProfilesController < ApplicationController
 
   def edit
-    @profile = Profile.where(organisation: current_organisation).first
+    @profile = Profile.find(params[:id])
   end
 
   def update
-  	@profile = Profile.where(organisation: current_organisation).first
+    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
-      redirect_to root_path, notice: 'Profile was successfully updated.' 
+      redirect_to root_path, notice: 'Profile was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 
