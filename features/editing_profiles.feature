@@ -9,4 +9,4 @@ Scenario: The organisation updates its profile
   Then I should see a link to edit my profile
   And if I click on the 'Edit profile' link
   And I update my name to 'Cooler Name'
-  Then I should see my profile updated with my new name 'Cooler Name'
+  Then My profile should be updated with my new name 'Cooler Name'

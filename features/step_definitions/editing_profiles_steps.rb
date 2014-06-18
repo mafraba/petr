@@ -11,6 +11,6 @@ Then(/^I update my name to '(.+)'$/) do |name|
   click_button 'Save'
 end
 
-Then(/^I should see my profile updated with my new name '(.+)'$/) do |name|
-  pending # express the regexp above with the code you wish you had
+Then(/^My profile should be updated with my new name '(.+)'$/) do |name|
+  expect(Profile.where(name: name)).to exist()
 end
