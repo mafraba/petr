@@ -6,4 +6,11 @@ FactoryGirl.define do
     description "My Profile description"
     name "My organisation's name"
   end
+
+  factory :another_profile do
+    organisation
+    description "Another's Profile description"
+    name "Another organisation's name"
+  end
+
 end
