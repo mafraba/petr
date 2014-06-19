@@ -1,0 +1,17 @@
+%h1 Organisation profile
+
+%p
+  %b Name:
+  = @profile.name
+%p
+  %b Organisation:
+  = @profile.organisation.email
+%p
+  %b Description:
+  = @profile.description
+
+- if organisation_signed_in?
+  = link_to 'Edit', edit_profile_path(@profile)
+  \|
+= link_to 'Back', root_path
+

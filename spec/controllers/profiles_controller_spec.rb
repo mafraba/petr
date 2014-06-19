@@ -63,11 +63,13 @@ describe ProfilesController do
         assigns(:profile).should eq(profile)
       end
 
-      # it "redirects to the profile" do
-      #   profile = FactoryGirl.create(:profile)
-      #   put :update, {:id => profile.to_param, :profile => valid_attributes}
-      #   response.should redirect_to(profile)
-      # end
+      it "redirects to the profile" do
+        # Simulate a login
+        organisation = FactoryGirl.create(:organisation)
+        sign_in organisation
+        put :update, {:id => organisation.profile.to_param, :profile => FactoryGirl.attributes_for(:profile)}
+        response.should redirect_to(organisation.profile)
+      end
 
     end
 
