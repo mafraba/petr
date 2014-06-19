@@ -7,8 +7,8 @@ FactoryGirl.define do
     name "My organisation's name"
   end
 
-  factory :another_profile do
-    organisation
+  factory :another_profile, class: Profile do
+    association :organisation, factory: :another_organisation
     description "Another's Profile description"
     name "Another organisation's name"
   end
