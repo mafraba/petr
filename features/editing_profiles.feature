@@ -15,10 +15,10 @@ Scenario: An organisation tries to updates another's profile
   Given I am logged in as an organisation
   When I visit the 'edit profile' page for a profile that is not mine
   Then I should be redirected to the home page
-  And I should see an error message 'Your are not allowed to access the page you requested'
+  And I should see an error message 'You are not authorized to access this page'
 
 Scenario: An individual tries to updates an organisation's profile
-  Given I am NOT logged in as an organisation
+  Given I am not logged in as an organisation
   When I visit the 'edit profile' page for any organisation's profile
   Then I should be redirected to the home page
-  And I should see an error message 'Your are not allowed to access the page you requested'
+  And I should see an error message 'You are not authorized to access this page'

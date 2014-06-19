@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
+  # CanCan will automatically load and authorise (RESTFul style)
+  load_and_authorize_resource
 
   def edit
-    @profile = Profile.find(params[:id])
   end
 
   def update
-    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
       redirect_to root_path, notice: 'Profile was successfully updated.'
     else
