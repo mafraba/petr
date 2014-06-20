@@ -3,23 +3,17 @@ Given(/^I am not logged in/) do
 end
 
 Given(/^I am logged in/) do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  Organisation.new(:email => email, 
-  	:password => password, 
-  	:password_confirmation => password,
-  	:confirmed_at => Time.now).save!
+  @organisation = FactoryGirl.create(:organisation_with_animals)  
 
   visit '/organisations/sign_in'
-  fill_in "organisation_email", :with => email
-  fill_in "organisation_password", :with => password
+  fill_in "organisation_email", :with => @organisation.email
+  fill_in "organisation_password", :with => @organisation.password
   click_button "Sign in"
+
 end
 
 Given(/^I am a registered user$/) do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  Organisation.new(:email => email, :password => password, :password_confirmation => password).save!
+  FactoryGirl.create(:organisation)
 end
 
 When(/^I click the 'Sign Up' link$/) do
@@ -52,8 +46,8 @@ When(/^I click the 'Password forgotten' link$/) do
 end
 
 When(/^I fill in my email$/) do
-  email = 'testing@man.net'
-  fill_in "organisation_email", :with => email
+  org = FactoryGirl.build(:organisation)
+  fill_in "organisation_email", :with => org.email
 end
 
 When(/^I push the 'Send me reset password instructions' button$/) do
@@ -61,9 +55,9 @@ When(/^I push the 'Send me reset password instructions' button$/) do
 end
 
 
-Then(/^I should be sent an email with instructions$/) do	  
+Then(/^I should be sent an email with instructions$/) do
   last_email = ActionMailer::Base.deliveries.last
-  expect(last_email.to).to eq ['testing@man.net']  
+  expect(last_email.to).to eq [FactoryGirl.build(:organisation).email]
   expect(last_email.subject).to have_content 'Reset password instructions'
   expect(last_email.body).to have_content 'link to change your password'
 end

@@ -13,8 +13,6 @@ end
 Then(/^I should see a list of every animal registered in the system$/) do
   expect(page).to have_selector('table tr th')
   expect(page).to have_selector('table tr td', text: FactoryGirl.attributes_for(:animal)['name'])
-  # Check that the organisation's email is shown
-  expect(page).to have_selector('table tr td', text: "test@man.org")
 end
 
 When(/^I visit the list of animals$/) do
