@@ -9,15 +9,13 @@
     %th Description
     %th
     %th
-    %th
 
   - @animals.each do |animal|
     %tr
-      %td= animal.name
+      %td= link_to animal.name, animal
       %td= animal.sex
       %td= animal.birthdate
       %td= animal.organisation.email
       %td= animal.description
-      %td= link_to 'Show', animal
 
 %br
