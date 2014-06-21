@@ -1,4 +1,4 @@
-class AnimalsController < ApplicationController
+class AnimalsController < ApplicationController  
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   # GET /animals
@@ -19,6 +19,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    authorize! :edit, @animal
   end
 
   # POST /animals
@@ -37,6 +38,7 @@ class AnimalsController < ApplicationController
   # PATCH/PUT /animals/1
   # PATCH/PUT /animals/1.json
   def update
+    authorize! :update, @animal
     if @animal.update(animal_params)
       redirect_to @animal, notice: 'Animal was successfully updated.' 
     else
@@ -59,6 +61,6 @@ class AnimalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:name, :sex, :birthdate, :organisation_id, :description)
+      params.require(:animal).permit(:name, :sex, :birthdate, :description)
     end
 end

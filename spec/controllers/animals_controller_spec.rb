@@ -88,6 +88,7 @@ describe AnimalsController do
     describe "with valid params" do
       it "updates the requested animal" do
         animal = FactoryGirl.create(:animal)
+        sign_in animal.organisation
         # Assuming there are no other animals in the database, this
         # specifies that the Animal created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -104,6 +105,7 @@ describe AnimalsController do
 
       it "redirects to the animal" do
         animal = FactoryGirl.create(:animal)
+        sign_in animal.organisation
         put :update, {:id => animal.to_param, :animal => valid_attributes}, valid_session
         response.should redirect_to(animal)
       end
@@ -120,6 +122,7 @@ describe AnimalsController do
 
       it "re-renders the 'edit' template" do
         animal = FactoryGirl.create(:animal)
+        sign_in animal.organisation
         # Trigger the behavior that occurs when invalid params are submitted
         Animal.any_instance.stub(:save).and_return(false)
         put :update, {:id => animal.to_param, :animal => { "name" => "invalid value" }}, valid_session

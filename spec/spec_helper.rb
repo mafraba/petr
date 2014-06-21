@@ -16,6 +16,13 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+# CanCan expects current_user to be defined. This default can be changed in 
+# the application controller, but it doesn't work for rspec tests, so
+# we need to redefine it here
+def current_user
+  current_organisation
+end
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
