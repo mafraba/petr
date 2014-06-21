@@ -18,8 +18,8 @@ When(/^I visit the 'edit animal' page for an animal I didn't register$/) do
   visit edit_animal_path(animal)
 end
 
-Then(/^there should be a link to 'edit' the animal$/) do
-  expect(page).to have_selector('#edit-animal-link')
+Then(/^there should be a (link|button) to '(.+)' the animal$/) do |type, action|
+  expect(page).to have_selector("##{action}-animal-#{type}")
 end
 
 Then(/^if I click on it I should be directed to the 'edit animal' page$/) do

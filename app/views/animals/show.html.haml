@@ -16,5 +16,5 @@
 
 - if can? :edit, @animal
   = link_to 'Edit', edit_animal_path(@animal), id: 'edit-animal-link'
-  \|
+  = button_to 'Delete', animal_path(@animal), id: 'delete-animal-button', method: :delete
 = link_to 'Back', animals_path
