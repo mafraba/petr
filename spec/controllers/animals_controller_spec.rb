@@ -132,15 +132,24 @@ describe AnimalsController do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested animal" do
+    it "destroys the requested animal if signed in" do
       animal = FactoryGirl.create(:animal)
+      sign_in animal.organisation
       expect {
         delete :destroy, {:id => animal.to_param}, valid_session
       }.to change(Animal, :count).by(-1)
     end
 
+    it "does not destroy the requested animal if NOT signed in" do
+      animal = FactoryGirl.create(:animal)
+      expect {
+        delete :destroy, {:id => animal.to_param}, valid_session
+      }.not_to change(Animal, :count).by(-1)
+    end
+
     it "redirects to the animals list" do
       animal = FactoryGirl.create(:animal)
+      sign_in animal.organisation
       delete :destroy, {:id => animal.to_param}, valid_session
       response.should redirect_to(animals_url)
     end

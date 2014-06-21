@@ -27,8 +27,8 @@ Then(/^if I click on it I should be directed to the 'edit animal' page$/) do
   expect(current_path).to eq(edit_animal_path(@organisation.animals.first))
 end
 
-Then(/^there should NOT be a link to 'edit' the animal$/) do
-  expect(page).not_to have_selector('#edit-animal-link')
+Then(/^there should NOT be a (link|button) to '(.+)' the animal$/) do |type, action|
+  expect(page).not_to have_selector("##{action}-animal-#{type}")
 end
 
 When(/^I visit the 'edit animal' page for an animal I registered$/) do

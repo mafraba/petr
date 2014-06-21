@@ -49,6 +49,7 @@ class AnimalsController < ApplicationController
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy
+    authorize! :destroy, @animal
     @animal.destroy
     redirect_to animals_url, notice: 'Animal was successfully destroyed.'
   end

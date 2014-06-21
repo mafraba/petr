@@ -2,6 +2,10 @@ When(/^I visit the home page$/) do
   visit '/'
 end
 
+When(/I click on '(.+)'/) do |name|
+	click_on name
+end
+
 Then(/^I should see a welcome message$/) do
   expect(page).to have_selector('main article#welcome')
 end

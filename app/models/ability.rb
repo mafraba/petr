@@ -15,8 +15,9 @@ class Ability
     can :edit, Profile, organisation_id: user.id
     can :update, Profile, organisation_id: user.id
 
-    # An animal can only be edited/updated by the organisation it belongs to    
+    # An animal can only be edited/updated/deleted by the organisation it belongs to    
     can :edit, Animal, organisation_id: user.id
     can :update, Animal, organisation_id: user.id
+    can :destroy, Animal, organisation_id: user.id
   end
 end
