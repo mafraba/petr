@@ -13,6 +13,8 @@
         \.
         = link_to 'Edit profile', edit_profile_path(current_organisation.profile), id: 'edit-profile-link'
         |
+        = link_to 'Manage account', edit_organisation_registration_path(current_organisation), id: 'manage-account-link'
+        |
         = link_to "Logout", destroy_organisation_session_path, method: :delete, id: 'logout-link'
       - else
         Are you an Organisation? 
