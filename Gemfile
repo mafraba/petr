@@ -48,6 +48,9 @@ gem 'haml-rails'
 # CanCan authorisation
 gem 'cancan'
 
+# Direct upload of files to Amazon S3
+gem 's3_direct_upload'
+
 # In dev/test
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
