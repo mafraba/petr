@@ -2,7 +2,7 @@
 					callback_method: "PUT", 
 					callback_param: "profile[logo]", 
 					id: "s3-uploader" do
-  = file_field_tag :file, multiple: true
+  = file_field_tag :file, multiple: false
 
 %script#template-upload{type: "text/x-tmpl"}
   .upload{id: 'file-{%=o.unique_id%}'}

@@ -5,6 +5,9 @@
 jQuery ->
   $("#s3-uploader").S3Uploader
     progress_bar_target: $('#uploads')
+    remove_completed_progress_bar: false
+    allow_multiple_files: false
+
   $(document).bind 's3_uploads_complete', ->
     $('#uploads').foundation('reveal', 'close');
   $('#s3-uploader').bind "s3_upload_failed", (e, content) ->
