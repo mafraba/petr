@@ -1,0 +1,14 @@
+development:
+  access_key_id: "AKIAIU7UWD3DBK4T4DJA"
+  secret_access_key: "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"
+  bucket: "eu-petrescue-dev"
+
+test:
+  access_key_id: 
+  secret_access_key: 
+  bucket: 
+
+production:
+  access_key_id: 
+  secret_access_key: 
+  bucket: 

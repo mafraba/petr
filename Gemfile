@@ -51,6 +51,12 @@ gem 'cancan'
 # Direct upload of files to Amazon S3
 gem 's3_direct_upload'
 
+# Paperclip for attachment managing
+gem 'paperclip'
+
+# Amazon Web Services
+gem 'aws-sdk'
+
 # Foundation 
 gem 'foundation-rails'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628224228) do
+ActiveRecord::Schema.define(version: 20140702205514) do
 
   create_table "animals", force: true do |t|
     t.string   "name"
@@ -49,15 +49,37 @@ ActiveRecord::Schema.define(version: 20140628224228) do
   add_index "organisations", ["reset_password_token"], name: "index_organisations_on_reset_password_token", unique: true
 
   create_table "profiles", force: true do |t|
-    t.integer  "organisation_id", null: false
+    t.integer  "organisation_id",   null: false
     t.text     "description"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "logo_file_path"
   end
 
   add_index "profiles", ["name"], name: "index_profiles_on_name", unique: true
   add_index "profiles", ["organisation_id"], name: "index_profiles_on_organisation_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

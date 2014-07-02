@@ -17,6 +17,12 @@
   .actions
     = f.submit 'Save'
 
+  -# Hidden fields for holding upload data
+  =f.hidden_field :logo_file_name
+  =f.hidden_field :logo_file_size
+  =f.hidden_field :logo_content_type
+  =f.hidden_field :logo_file_path
+
 = render 'upload'
 
 = link_to 'Back', root_path
