@@ -1,5 +1,4 @@
 = s3_uploader_form 	acl: 'private',
-					callback_param: "direct_upload_url",
 					max_file_size: 5.megabytes,
 					id: "s3-uploader" do
   = file_field_tag :file, multiple: false
@@ -10,7 +9,7 @@
     .progress
       .bar{style: "width: 0%"}
 
-#uploads{'data-reveal'.to_sym => 'true'}
+#uploads
   %h1
     Uploading...
 

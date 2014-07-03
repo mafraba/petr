@@ -6,8 +6,11 @@ do_on_load = () ->
   # Set up the upload form
   $("#s3-uploader").S3Uploader
     progress_bar_target: $('#uploads')
-    remove_completed_progress_bar: false
+    remove_completed_progress_bar: true
     allow_multiple_files: false
+  # Set up progress bars' modal
+  $('#uploads').attr('data-reveal','')
+  $('#uploads').foundation('reveal', {close_on_background_click: false})
   # When all uploads are finished, hide the progress bars
   $(document).bind 's3_uploads_complete', ->
     $('#uploads').foundation('reveal', 'close');
