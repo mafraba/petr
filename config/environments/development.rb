@@ -39,3 +39,5 @@ Rails.application.configure do
   # Default url (devise needs it)
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 end
+
+Paperclip.options[:command_path] = "/usr/bin/"

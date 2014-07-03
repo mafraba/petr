@@ -11,7 +11,9 @@ class ProfilesController < ApplicationController
         # This is where it actually is right now (temporal location)
         pic_source = params[:profile][:logo_file_path]
         # Now copy from temp location to where paperclip expects it to be
-        copy_and_delete paperclip_file_path, raw_source
+        copy_and_delete paperclip_file_path, pic_source
+        # Reprocess to generate styles
+        @profile.logo.reprocess!
       end
       # Redirect finally
       redirect_to @profile, notice: 'Profile was successfully updated.'
@@ -24,7 +26,13 @@ class ProfilesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def profile_params
-    params.require(:profile).permit(:name, :organisation_id, :description, :logo)
+    params.require(:profile).permit(:name, 
+                                    :organisation_id, 
+                                    :description, 
+                                    :logo_file_name, 
+                                    :logo_content_type, 
+                                    :logo_file_size, 
+                                    :logo_file_path)
   end
 
   # Move S3 object

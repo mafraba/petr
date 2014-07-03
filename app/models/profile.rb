@@ -7,5 +7,9 @@ class Profile < ActiveRecord::Base
     storage: :s3,
     s3_credentials: "#{Rails.root}/config/aws.yml",
     path: ":class/:attachment/:id/:style/:filename",
-    url: ':s3_domain_url'
+    url: ':s3_domain_url',
+    styles: { :thumbnail => '100×100' }
+
+  # Validate content type
+  validates_attachment_content_type :logo, :content_type => /\Aimage/
 end
