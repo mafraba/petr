@@ -6,10 +6,10 @@ class Profile < ActiveRecord::Base
   has_attached_file :logo, 
     storage: :s3,
     s3_credentials: "#{Rails.root}/config/aws.yml",
-    path: ":class/:attachment/:id/:style/:filename",
+    path: ":class/:attachment/:id/:style",
     url: ':s3_domain_url',
     styles: { 
-      :original => '400x400>',
+      :original => ['400x400>', :png],
       :thumbnail => ['', :png]
     },
     convert_options: { 

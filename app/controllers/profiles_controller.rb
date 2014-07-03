@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
       # If a logo was attached
       if params[:profile][:logo_file_name]
         # This is where paperclip expects the original picture
-        paperclip_file_path = "profiles/logos/#{@profile.id}/original/#{params[:profile][:logo_file_name]}"
+        paperclip_file_path = "profiles/logos/#{@profile.id}/original"
         # This is where it actually is right now (temporal location)
         pic_source = params[:profile][:logo_file_path]
         # Now copy from temp location to where paperclip expects it to be
