@@ -21,11 +21,11 @@ do_on_load = () ->
   $('#s3-uploader').bind "s3_upload_failed", (e, content) ->
     alert("#{content.filename} failed to upload : #{content.error_thrown}")  
   # When the upload is completed, save the values to submit later
-  $('#s3_uploader').bind 's3_upload_complete', (e, content) ->    
-    $('#logo_file_name').val(content.filename);
-    $('#logo_file_path').val(content.filepath);
-    $('#logo_file_size').val(content.filesize);
-    $('#logo_content_type').val(content.filetype);  
+  $('#s3-uploader').bind 's3_upload_complete', (e, content) ->
+    $('#profile_logo_file_name').val(content.filename);
+    $('#profile_logo_file_path').val(content.filepath);
+    $('#profile_logo_file_size').val(content.filesize);
+    $('#profile_logo_content_type').val(content.filetype);  
 
 $(document).ready(do_on_load);
 $(window).bind('page:change', do_on_load);
