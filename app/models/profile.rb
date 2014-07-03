@@ -9,12 +9,12 @@ class Profile < ActiveRecord::Base
     path: ":class/:attachment/:id/:style/:filename",
     url: ':s3_domain_url',
     styles: { 
-      :original => '1920×1080>',
-      :thumbnail => '100×100>' 
+      :original => '400x400>',
+      :thumbnail => ['', :png]
     },
     convert_options: { 
       :original => "-strip",
-      :thumbnail => "-quality 75 -strip -background transparent -gravity center -extent 100x100"
+      :thumbnail => "-thumbnail 80x80^ -gravity center -extent 80x80"
     }
 
   # Validate content type

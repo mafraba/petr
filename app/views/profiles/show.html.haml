@@ -1,3 +1,4 @@
+= image_tag @profile.logo.url(:thumbnail)
 %h1 Organisation profile
 
 %p
@@ -9,9 +10,6 @@
 %p
   %b Description:
   = @profile.description
-%p
-  %b Logo:
-  = image_tag @profile.logo.url(:thumbnail)
 
 - if organisation_signed_in?
   = link_to 'Edit', edit_profile_path(@profile)
