@@ -12,8 +12,8 @@ do_on_load = () ->
   $('#uploads').attr('data-reveal','')
   $('#uploads').foundation('reveal', {close_on_background_click: false})
   # When all uploads are finished, hide the progress bars
-  $(document).bind 's3_uploads_complete', ->
-    $('#uploads').foundation('reveal', 'close');
+  # $(document).bind 's3_uploads_complete', ->
+  #   $('#uploads').foundation('reveal', 'close');
   # When uploads begin, show progress bar
   $('#s3-uploader').bind 's3_uploads_start', (e) ->
     $('#uploads').foundation('reveal', 'open');  
