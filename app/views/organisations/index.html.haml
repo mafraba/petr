@@ -1,7 +1,9 @@
-%h1 List of organisations
+%header List of organisations
 
-%ul#organisations-list
+#organisations-list
   - @organisations.each do |organisation|
-    %li= organisation.email
-
+    %ul
+      #logo= image_tag organisation.profile.logo.url(:thumbnail)
+      %li#name= link_to organisation.profile.name, profile_path(organisation.profile)
+      %li#email= link_to organisation.email, "mailto:#{organisation.email}" 
 %br

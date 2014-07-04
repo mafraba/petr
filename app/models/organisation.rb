@@ -14,6 +14,9 @@ class Organisation < ActiveRecord::Base
   # Auto generate profile on creation
   after_create :build_profile
 
+  # Scopes for querying
+  scope :including_profile, -> { includes(:profile) }
+
   private ###################################################################
 
   def build_profile
