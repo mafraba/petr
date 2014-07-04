@@ -1,4 +1,6 @@
-%h1 Editing profile
+%header Editing profile
+
+= image_tag @profile.logo.url(:thumbnail), id: 'logo-edit'
 
 = form_for @profile do |f|
   - if @profile.errors.any?
