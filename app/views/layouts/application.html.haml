@@ -32,4 +32,14 @@
     %p.notice= notice
     %p.alert= alert
 
-    = yield
+    %main
+      = yield
+
+    %footer
+      PetRescue.eu
+      %address
+        #author
+          (c) Author Name
+        #phone
+          615 123 123
+        = link_to 'info@petrescue.eu', 'mailto:info@petrescue.eu' , id: 'email'
