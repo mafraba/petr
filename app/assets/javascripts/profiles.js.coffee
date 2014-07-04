@@ -19,13 +19,7 @@ do_on_load = () ->
     $('#uploads').foundation('reveal', 'open');  
   # When an upload fails show error
   $('#s3-uploader').bind "s3_upload_failed", (e, content) ->
-    alert("#{content.filename} failed to upload : #{content.error_thrown}")  
-  # When the upload is completed, save the values to submit later
-  $('#s3-uploader').bind 's3_upload_complete', (e, content) ->
-    $('#profile_logo_file_name').val(content.filename);
-    $('#profile_logo_file_path').val(content.filepath);
-    $('#profile_logo_file_size').val(content.filesize);
-    $('#profile_logo_content_type').val(content.filetype);  
+    alert("#{content.filename} failed to upload : #{content.error_thrown}")
 
 $(document).ready(do_on_load);
 $(window).bind('page:change', do_on_load);

@@ -1,4 +1,7 @@
-= s3_uploader_form 	max_file_size: 5.megabytes,
+= s3_uploader_form 	callback_url: "#{profile_path(@profile)}",
+          callback_method: "PATCH",
+          callback_param: "tmp_logo_upload_path",
+          max_file_size: 5.megabytes,
           acl: 'private',
 					id: "s3-uploader" do
   = file_field_tag :file, multiple: false
