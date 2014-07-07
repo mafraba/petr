@@ -57,9 +57,6 @@ gem 'paperclip'
 # Amazon Web Services
 gem 'aws-sdk'
 
-# Foundation 
-gem 'foundation-rails'
-
 # In dev/test
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

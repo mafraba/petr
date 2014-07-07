@@ -15,5 +15,3 @@
 //= require turbolinks
 //= require s3_direct_upload
 //= require_tree .
-//= require foundation
-$(document).foundation();
