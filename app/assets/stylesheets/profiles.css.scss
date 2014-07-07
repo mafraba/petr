@@ -1,0 +1,24 @@
+#s3-uploader {
+	display: none;
+}
+
+#uploads {
+	// Modal bootstrap classes (dont really need to be nested div's, yahoo!)
+	@extend .modal;	
+	@extend .modal-dialog;
+	@extend .modal-content;
+	// We want a fade effect
+	@extend .fade;
+
+	header {
+		// Bootstrap default modal header/title styling
+		// both header and title on same tag, no nested divs :^)
+		@extend .modal-header;
+		@extend .modal-title;
+	}
+
+	#progress-meters {
+		// Bootstrap default modal body styling
+		@extend .modal-body;
+	}
+}
