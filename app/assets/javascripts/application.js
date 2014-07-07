@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require s3_direct_upload
+//= require bootstrap-sprockets
 //= require_tree .

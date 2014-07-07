@@ -69,3 +69,8 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
 end
+
+# Bootstrap framework
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
