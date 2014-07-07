@@ -20,5 +20,12 @@
 	#progress-meters {
 		// Bootstrap default modal body styling
 		@extend .modal-body;
+
+		.bar {
+			// We want an animated striped progress bar
+			@extend .progress-bar;
+			@extend .progress-bar-striped;
+			@extend .active;
+		}
 	}
 }
