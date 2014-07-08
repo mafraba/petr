@@ -7,25 +7,7 @@
     = csrf_meta_tags
   %body
     %nav
-      - if organisation_signed_in?
-        Logged in as
-        %em= current_organisation.email
-        \.
-        = link_to 'Edit profile', edit_profile_path(current_organisation.profile), id: 'edit-profile-link'
-        |
-        = link_to 'Manage account', edit_organisation_registration_path(current_organisation), id: 'manage-account-link'
-        |
-        = link_to "Logout", destroy_organisation_session_path, method: :delete, id: 'logout-link'
-      - else
-        Are you an Organisation? 
-        = link_to "Sign up", new_organisation_registration_path, :id => 'signup-link'
-        |
-        = link_to "Login", new_organisation_session_path, :id => 'login-link'
-    = link_to "Home", root_path, :id => 'home-link'
-    = link_to "List of animals", animals_path, :id => 'animals-list-link'
-    = link_to "List of organisations", organisations_index_path, :id => 'organisations-list-link'
-    - if organisation_signed_in?
-      = link_to 'Register Animal', new_animal_path, :id => 'animal-registration-link'
+      = render 'layouts/navigation_bar'
 
     - flash.each do | name, msg |
       %div{ class: "flash-#{name}" }
