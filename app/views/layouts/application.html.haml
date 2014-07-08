@@ -27,8 +27,11 @@
     - if organisation_signed_in?
       = link_to 'Register Animal', new_animal_path, :id => 'animal-registration-link'
 
-    %p.notice= notice
-    %p.alert= alert
+    - flash.each do | name, msg |
+      %div{ class: "flash-#{name}" }
+        = msg
+        %button.close
+          &times;
 
     %main
       = yield
