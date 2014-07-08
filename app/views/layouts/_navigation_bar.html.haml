@@ -1,27 +1,31 @@
-/ Page navigation links
-#navigation
-  = link_to "Home", root_path, :id => 'home-link'
-  = link_to "List of animals", animals_path, :id => 'animals-list-link'
-  = link_to "List of organisations", organisations_index_path, :id => 'organisations-list-link'
-  - if organisation_signed_in?
-    = link_to 'Register Animal', new_animal_path, :id => 'animal-registration-link'
+#navigation-header
+  %button.navbar-toggle{'data-toggle'.to_sym => 'collapse', 'data-target'.to_sym => '#collapsible-navigation-bar'}
+    .icon-bar
+    .icon-bar
+    .icon-bar
+  = link_to 'PetRescue.eu', root_path, id: 'home-link'
 
-/ Authentication and Account management links
-#identity-management
-  - if organisation_signed_in?
-    %p
-      Logged in as
-      %em= current_organisation.email
-      \.
-    = link_to 'Edit profile', edit_profile_path(current_organisation.profile), id: 'edit-profile-link'
-    |
-    = link_to 'Manage account', edit_organisation_registration_path(current_organisation), id: 'manage-account-link'
-    |
-    = link_to "Logout", destroy_organisation_session_path, method: :delete, id: 'logout-link'
-  - else
-    %p
-      Are you an Organisation? 
-    = link_to "Sign up", new_organisation_registration_path, :id => 'signup-link'
-    |
-    = link_to "Login", new_organisation_session_path, :id => 'login-link'
+#collapsible-navigation-bar
+  / Page navigation links
+  %ul#navigation
+    %li= link_to "List of animals", animals_path, :id => 'animals-list-link'
+    %li= link_to "List of organisations", organisations_index_path, :id => 'organisations-list-link'
+    - if organisation_signed_in?
+      %li= link_to 'Register Animal', new_animal_path, :id => 'animal-registration-link'
+
+  / Authentication and Account management links
+  %ul#identity-management
+    - if organisation_signed_in?
+      %p
+        Logged in as
+        %em= current_organisation.email
+        \.
+      %li= link_to 'Edit profile', edit_profile_path(current_organisation.profile), id: 'edit-profile-link'
+      %li= link_to 'Manage account', edit_organisation_registration_path(current_organisation), id: 'manage-account-link'
+      %li= link_to "Logout", destroy_organisation_session_path, method: :delete, id: 'logout-link'
+    - else
+      %p
+        Are you an Organisation? 
+      %li= link_to "Sign up", new_organisation_registration_path, :id => 'signup-link'
+      %li= link_to "Login", new_organisation_session_path, :id => 'login-link'
 
