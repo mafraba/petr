@@ -1,3 +1,6 @@
+// We define when the collapsible navbar should collapse
+$grid-float-breakpoint: 769px;  // So that iPad shows it collapsed
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import '*';
