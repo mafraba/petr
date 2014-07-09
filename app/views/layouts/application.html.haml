@@ -9,21 +9,9 @@
   %body
     %nav#main-nav
       = render 'layouts/navigation_bar'
-
-    - flash.each do | name, msg |
-      %div{ class: "flash-#{name}" }
-        = msg
-        %button.close
-          &times;
-
+    %section#flashes
+      = render 'layouts/flash_messages'
     %main
       = yield
-
     %footer
-      PetRescue.eu
-      %address
-        #author
-          (c) Author Name
-        #phone
-          615 123 123
-        = link_to 'info@petrescue.eu', 'mailto:info@petrescue.eu' , id: 'email'
+      = render 'layouts/footer'
