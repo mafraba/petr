@@ -28,18 +28,11 @@
 
 	#identity-management {
 		@extend .navbar-right;
+		@extend .navbar-nav;
 		@extend .nav;
 
 		p {
-			display: inline;
-		}
-
-		li {
-			display: inline;
-		}
-
-		li > a {
-			display: inline;
+			@extend .navbar-text;
 		}
 	}
 }
