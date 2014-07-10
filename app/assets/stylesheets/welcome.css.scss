@@ -1,3 +1,17 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#welcome {
+
+	> header {
+		@extend .jumbotron;
+		text-align: center;
+		//color: #559955;
+
+		a {
+			@extend .btn;
+			@extend .btn-lg;
+			@extend .btn-primary;
+			margin-top: 2rem;
+			margin-left: 2rem;
+			width: 20rem; 
+		}
+	}
+}

@@ -4,6 +4,7 @@
 	@extend .navbar;
 	@extend .navbar-default;
 	@extend .container-fluid;
+	margin-bottom: 0;
 
 	#collapsible-navigation-bar {
 		// Make it collapsiple
@@ -37,6 +38,6 @@
 	}
 
 	#collapsible-navigation-bar.collapse #navigation {
-			border-bottom: 1px solid #ddd;
-		}
+		border-bottom: 1px solid #ddd;
+	}
 }
