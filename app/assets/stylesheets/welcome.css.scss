@@ -3,16 +3,26 @@
 	> header {
 		@extend .jumbotron;
 		text-align: center;
-		//color: #559955;
 		background-color: transparent;
 
 		a {
 			@extend .btn;
 			@extend .btn-lg;
-			@extend .btn-primary;
+			//@extend .btn-primary;
 			margin-top: 2rem;
 			margin-left: 2rem;
-			width: 20rem; 
+			width: 20rem;
+			border: 1px solid;
+			color: white;
+			background-color: #6a6;
+			border-color: #383;
+			transition: 0.3s;
+
+			&:hover {
+				color: white;
+				background-color: #484;
+				transition: 0.2s;			
+			}
 		}
 	}
 }
