@@ -34,7 +34,9 @@
 		p {
 			@extend .navbar-text;
 		}
-
-
 	}
+
+	#collapsible-navigation-bar.collapse #navigation {
+			border-bottom: 1px solid #ddd;
+		}
 }
